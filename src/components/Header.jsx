@@ -124,4 +124,4 @@ const Header = ({ isScrolled }) => {
   )
 }
 
-export default Header
+export default Header;

@@ -43,6 +43,14 @@ const Services = () => {
     }
   ]
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setIsMobileMenuOpen(false)
+  }
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -111,7 +119,7 @@ const Services = () => {
               />
 
               {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black/75 group-hover:bg-black/55 transition-all duration-500" />
+              <div className="absolute inset-0 bg-black/75 group-hover:bg-black/50 transition-all duration-500" />
 
               {/* Content */}
               <div className="relative z-10 p-8 flex flex-col items-center text-center h-full justify-center">
@@ -124,11 +132,11 @@ const Services = () => {
                 </p>
 
                 <motion.a
-                  href="http://builder.renderforestsites.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-white font-medium text-sm uppercase tracking-wide hover:text-mondtech-light-gray transition-colors duration-200"
+                  className="inline-flex items-center text-white font-medium text-sm uppercase tracking-wide hover:text-mondtech-light-gray transition-colors duration-200 cursor-pointer"
                   whileHover={{ x: 5 }}
+                  onClick={() => scrollToSection("contact")}
                 >
                   Learn more
                   <FaArrowRight className="ml-2 w-3 h-3" />
